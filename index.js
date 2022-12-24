@@ -48,6 +48,6 @@ app.use(express.static('assets'));
 
 
 
-
+//server listening and running at port 8000
 app.listen(port, () => console.log(`Server is up and running at port ${port}`));
 

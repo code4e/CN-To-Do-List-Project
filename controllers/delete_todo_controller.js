@@ -1,13 +1,13 @@
+//requiring the Todo model
 const Todo = require("../models/todo");
 
 module.exports.deleteTodos = (req, res) => {
     console.log('Deleted todos');
 
+    // fetching ids of todos to be deleted
     let todosToDelete = req.body;
-    // console.log(todosToDelete.length);
 
-    // console.log(todosToDelete);
-
+    //using deleteMany fn of mongodb to delete the selected todos by ids
     Todo.deleteMany(
         {
             _id: {
