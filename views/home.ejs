@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/style.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+
+    <!-- main app container -->
+    <div id="app-cont">
+        <form class="row g-3">
+            <legend>TODO APP</legend>
+
+            <!-- to do description container -->
+            <div class="col-12 todo-desc-cont">
+                <label for="todo-desc" class="form-label">DESCRIPTION</label>
+                <input type="text" class="form-control" id="todo-desc" placeholder="What do you want to do?">
+            </div>
+
+
+            <!-- to do category container -->
+            <div class="col-md-6 todo-category-cont">
+                <label for="todo-category" class="form-label">CATEGORY</label>
+                <select id="todo-category" class="form-select">
+                    <option selected>Choose a category...</option>
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>School</option>
+                    <option>Cleaning</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- to do due date container -->
+            <div class="col-md-6 todo-due-date-cont">
+                <label for="dueDate" class="form-label">DUE DATE</label>
+                <input type="date" class="form-control" id="dueDate">
+            </div>
+
+
+            <div class="col-12 btn-cont">
+                <button id="add-task" class="btn btn-secondary"><i class="fa-solid fa-plus"></i> &nbsp; Add
+                    Task</button>
+                <button id="remove-task" class="btn btn-danger"><i class="fa-solid fa-trash"></i> &nbsp; Delete
+                    Tasks</button>
+            </div>
+
+        </form>
+
+        <!-- to do items container -->
+        <div class="items-cont">
+
+            <div class="form-check todo-item">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label item-label-cont" for="flexCheckDefault">
+                    <span class="item-label">Why not add a task?</span>
+                    </br>
+                    <i class="fa-regular fa-calendar-days"></i>
+                    &nbsp;
+                    <span class="item-date">MAY 2, 2019</span>
+                </label>
+            </div>
+
+
+            <div class="form-check todo-item">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label item-label-cont" for="flexCheckDefault">
+                    <span class="item-label">Why not add a task?</span>
+                    </br>
+                    <i class="fa-regular fa-calendar-days"></i>
+                    &nbsp;
+                    <span class="item-date">MAY 2, 2019</span>
+                </label>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="/js/home.js"></script>
+</body>
+
+</html>

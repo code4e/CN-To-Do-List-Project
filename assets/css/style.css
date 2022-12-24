@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: lightgray;
+}
+
+
+#app-cont {
+    margin: 0 auto;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    width: 65vw;
+    min-height: 50vh;
+    
+    background-color: white;
+}
+
+
+.todo-desc-cont, .todo-due-date-cont, .todo-category-cont {
+    border-top: 1px solid darkgray;
+    padding: 10px;
+}
+
+
+
+
+.todo-due-date-cont {
+    border-left: 1px solid darkgray;
+}
+
+.todo-due-date-cont, .todo-category-cont {
+    border-bottom:  1px solid darkgray;
+}
+
+
+
+form {
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+}
+
+
+.todo-desc-cont input, .todo-due-date-cont input, .todo-category-cont select {
+    border: none;
+    border-width: 0;
+    box-shadow: none;
+}
+
+.todo-desc-cont input:focus, .todo-due-date-cont input:focus, .todo-category-cont select:focus{
+    border: none;
+    border-width: 0;
+    box-shadow: none;
+}
+
+.btn-cont{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+.btn-cont button{
+    padding: 20px 30px;
+}
+.btn-cont i{
+    transform: scale(1.5);
+}
+
+.items-cont{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin: 10px;
+}
+
+.form-check{
+    /* background-color: blue; */
+    width: 90%;
+    padding: 10px;
+}
+.fa-calendar-days, .item-date{
+    color: lightslategray;
+}
+.item-label-cont{
+    margin-left: 10px;
+}
+.todo-item{
+    border-top: 1px solid darkgray;
+}
+.item-label{
+    font-size: larger;
+}
