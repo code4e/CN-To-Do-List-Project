@@ -3,7 +3,8 @@ const app = express();
 const port = 8000;
 const bodyParser = require('body-parser');
 
-
+const db = require('./config/mongoose');
+const Todo = require('./models/todo');
 
 //use express router
 app.use('/', require('./routes/index'));

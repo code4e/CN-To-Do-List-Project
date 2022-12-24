@@ -1,4 +1,6 @@
-let todoList = [
+const Todo = require("../models/todo");
+
+let todoList2 = [
     {
         id: 1,
         todoDesc: 'wash clothes',
@@ -38,8 +40,25 @@ let todoList = [
 ];
 module.exports.home = (req, res) => {
     // return res.send('Home Controller loaded from express');
-    res.render('home', {
-        title: 'Todo List',
-        todo_list: todoList
+
+    Todo.find({}, (err, todoList) => {
+        if (err) {
+            console.log('Error occured in retreiving Todos from db');
+            return res.status(401).send('Error occured in retreiving Todos from db');
+        }
+
+        // console.log(todoList);
+        res.render('home', {
+            title: 'Todo List',
+            todo_list: todoList
+        });
+
+
     });
+
+    // res.render('home', {
+    //     title: 'Todo List',
+    //     todo_list: todoList2
+    // });
+
 }
