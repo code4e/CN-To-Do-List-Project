@@ -19,6 +19,12 @@ body {
     background-color: white;
 }
 
+legend{
+    text-align: center;
+    margin: 10px;
+    font-size: xx-large;
+}
+
 
 .todo-desc-cont, .todo-due-date-cont, .todo-category-cont {
     border-top: 1px solid darkgray;
@@ -75,6 +81,7 @@ form {
     align-items: center;
     justify-content: start;
     margin: 10px;
+    width: 100%;
 }
 
 .form-check{
@@ -87,10 +94,46 @@ form {
 }
 .item-label-cont{
     margin-left: 10px;
+    /* text-decoration: line-through; */
 }
 .todo-item{
-    border-top: 1px solid darkgray;
+    
 }
 .item-label{
     font-size: larger;
+}
+.selected{
+    text-decoration: line-through;
+    color: lightslategray;
+}
+.item-wrapper{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid darkgray;
+}
+.todo-cat-label{
+    width: 8rem;
+    text-align: center;
+    line-height: 1rem;
+    height: 3rem;
+    border-radius: 3px;
+}
+.uncategorized{
+    display: none;
+}
+.Personal{
+    background-color: sienna;
+}
+.Work{
+    background-color: turquoise;
+}
+.School{
+    background-color: seagreen;
+}
+.Cleaning{
+    background-color: darkgoldenrod;
+}
+.Other{
+    background-color: rosybrown;
 }

@@ -27,20 +27,20 @@
             <!-- to do description container -->
             <div class="col-12 todo-desc-cont">
                 <label for="todo-desc" class="form-label">DESCRIPTION</label>
-                <input type="text" class="form-control" id="todo-desc" placeholder="What do you want to do?">
+                <input type="text" class="form-control" id="todo-desc" placeholder="What do you want to do?" required>
             </div>
 
 
             <!-- to do category container -->
             <div class="col-md-6 todo-category-cont">
                 <label for="todo-category" class="form-label">CATEGORY</label>
-                <select id="todo-category" class="form-select">
-                    <option selected>Choose a category...</option>
-                    <option>Personal</option>
-                    <option>Work</option>
-                    <option>School</option>
-                    <option>Cleaning</option>
-                    <option>Other</option>
+                <select id="todo-category" class="form-select" required>
+                    <option value="">Choose a category...</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 
@@ -63,28 +63,34 @@
         <!-- to do items container -->
         <div class="items-cont">
 
-            <div class="form-check todo-item">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label item-label-cont" for="flexCheckDefault">
-                    <span class="item-label">Why not add a task?</span>
-                    </br>
-                    <i class="fa-regular fa-calendar-days"></i>
-                    &nbsp;
-                    <span class="item-date">MAY 2, 2019</span>
-                </label>
-            </div>
+            <% todo_list.forEach((item, idx)=> { %>
+
+                <div class="item-wrapper" id="<%= idx + " item"%>">
+                    <div class="form-check todo-item">
+                        <input class="form-check-input" type="checkbox" value="" id=<%=idx %> >
+                        <label class="form-check-label item-label-cont" for=<%=idx %> >
+                            <span class="item-label">
+                                <%= item.todoDesc %>
+                            </span>
+                            </br>
+                            <i class="fa-regular fa-calendar-days"></i>
+                            &nbsp;
+                            <span class="item-date">
+                                <%= (new Date(item.todoDate)).toLocaleString('en-us',{ year: 'numeric' , month: 'short'
+                                    , day: 'numeric' }) %>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="<%= `p-3 mb-2 text-white todo-cat-label ${item.todoCategory}` %>">
+                        <%= item.todoCategory %>
+                    </div>
+
+                </div>
 
 
-            <div class="form-check todo-item">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label item-label-cont" for="flexCheckDefault">
-                    <span class="item-label">Why not add a task?</span>
-                    </br>
-                    <i class="fa-regular fa-calendar-days"></i>
-                    &nbsp;
-                    <span class="item-date">MAY 2, 2019</span>
-                </label>
-            </div>
+
+                <% }) %>
 
         </div>
 
@@ -92,7 +98,10 @@
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="/js/home.js"></script>
+
 </body>
 
 </html>
