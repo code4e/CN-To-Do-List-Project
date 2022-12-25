@@ -1,3 +1,5 @@
+// 1) Run 'npm i' to install needed dependencies
+// 2) Run 'npm start' to start the porject
 const express = require('express');
 const app = express();
 const port = 8000;
