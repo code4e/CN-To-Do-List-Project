@@ -71,11 +71,11 @@
 
                 <div class="item-wrapper" id="<%= `item-${item._id}` %>">
                     <div class="form-check todo-item">
-                        <input class="form-check-input" type="checkbox" value="" id=<%= item._id %> >
-                        <label class="form-check-label item-label-cont" for=<%= item._id %> >
+                        <input class="form-check-input" type="checkbox" value="" id=<%=item._id %> >
+                        <label class="form-check-label item-label-cont" for=<%=item._id %> >
                             <span class="item-label">
                                 <%= item.todoDesc %>
-                                
+
                             </span>
                             </br>
                             <i class="fa-regular fa-calendar-days"></i>
@@ -87,10 +87,46 @@
                         </label>
                     </div>
 
+                    <!-- todo category label -->
                     <div class="<%= `p-3 mb-2 text-white todo-cat-label ${item.todoCategory}` %>">
-                        <%= item.todoCategory %>
+                        <span>
+                            <%= item.todoCategory %>
+                        </span>
+                        &nbsp;
+
+
+                        <div class="todo-change-category-cont">
+                            
+                            <label for= <%= `todo-category-${item._id}` %> class="form-label" hidden>CATEGORY</label>
+                            <select id=<%= `todo-category-${item._id}` %> class="form-select" required>
+                                <option value="uncategorized">Choose a category...</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+
                     </div>
 
+                    <% if (item.todoCategory=="uncategorized" ) { %>
+
+
+
+                        <div class="todo-change-category-cont">
+                            <label for=<%= `todo-category-${item._id}` %> class="form-label" hidden>CATEGORY</label>
+                            <select id=<%= `todo-category-${item._id}` %> class="form-select" required>
+                                <option value="uncategorized">Choose a category...</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <% } %>
                 </div>
 
 
@@ -103,7 +139,7 @@
 
     </div>
 
-    
+
 
     <!-- using jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.js"

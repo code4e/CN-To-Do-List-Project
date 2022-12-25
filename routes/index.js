@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const homeController = require('../controllers/home_controller');
 const createTodoController = require('../controllers/create_todo_controller');
 const deleteTodoController = require('../controllers/delete_todo_controller');
+const updateToDoCategoryController = require('../controllers/update_todo_category_controller');
 
 //using body parser to decode the req.body into javascript object
 router.use(bodyParser.json());
@@ -22,5 +23,9 @@ router.post('/create-todo', createTodoController.createTodo);
 
 //route to delet todo(s), sent to deleteTodoController
 router.delete('/delete-todos', deleteTodoController.deleteTodos);
+
+//route to handle update todo category
+router.patch('/update-todo-category', updateToDoCategoryController.updateTodoCategory);
+
 
 module.exports = router;

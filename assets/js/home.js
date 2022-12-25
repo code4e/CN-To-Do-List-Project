@@ -41,9 +41,10 @@
                 return;
             } else {
 
-                //organising the todo object into a js object for sending it to backend in the POST request
+                //organising the todo into a js object for sending it to backend in the POST request
                 let todo = {
                     todoDesc: $('#todo-desc')[0].value,
+                    //setting category as "uncategorized" if no category has been provided
                     todoCategory: $('#todo-category')[0].selectedOptions[0].value ? $('#todo-category')[0].selectedOptions[0].value : "uncategorized",
                     todoDate: $('#dueDate')[0].valueAsDate
                 }
@@ -127,6 +128,37 @@
                 $(e.target.nextElementSibling).removeClass("selected");
             }
         }
+        //handle change todo category
+        else if (e.target.tagName == 'SELECT') {
+            // console.log(e.target);
+            $(e.target).change((event) => {
+                //get id of the selected todo
+                // let todoToUpdateID = (e.target.id).split("-")[2];
+                // console.log(todoToUpdate);
+                //get the new category selected
+                // let newCategory = event.target.selectedOptions[0].value;
+                let dataToUpdate = {
+                    todoToUpdateID: (e.target.id).split("-")[2],
+                    newCategory: event.target.selectedOptions[0].value
+                }
+
+                // console.log(dataToUpdate);
+
+                $.ajax({
+                    type: 'PATCH',
+                    url: `/update-todo-category?id=${dataToUpdate.todoToUpdateID}&newCategory=${dataToUpdate.newCategory}`,
+                    success: function (response) {
+                         //redirecting to main page from here.
+                         window.location.replace(response.url);
+                    },
+                    error: function (result) {
+                        console.log("Patch request Failed.");
+                    }
+                });
+
+            });
+        }
+
     });
 })();
 
